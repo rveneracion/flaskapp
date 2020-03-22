@@ -1,4 +1,4 @@
 FROM python:3.8
 
-RUN pip install flask uwsgi
+RUN pip install numpy flask uwsgi
 

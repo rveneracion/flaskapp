@@ -1,7 +1,7 @@
 version: '3'
 services:
     flask:
-        image: flaskuwsgi
+        build: .
         volumes:
             - /home/richard/docker/projects/pentrainer:/flaskapp
         working_dir: /flaskapp
