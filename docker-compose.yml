@@ -1,0 +1,16 @@
+version: '3'
+services:
+    flask:
+        image: flaskuwsgi
+        volumes:
+            - /home/richard/docker/projects/pentrainer:/flaskapp
+        working_dir: /flaskapp
+        command: uwsgi --ini /flaskapp/app.ini
+              
+    nginx:
+        image: nginx:alpine
+        ports:
+            - "8880:80"
+        volumes:
+            - "/home/richard/docker/projects/pentrainer:/flaskapp"
+            - "/home/richard/docker/projects/pentrainer/conf.d:/etc/nginx/conf.d"
