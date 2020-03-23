@@ -3,7 +3,7 @@ services:
     flask:
         build: .
         volumes:
-            - /home/richard/docker/projects/pentrainer:/flaskapp
+            - .:/flaskapp
         working_dir: /flaskapp
         command: uwsgi --ini /flaskapp/app.ini
               
@@ -12,5 +12,5 @@ services:
         ports:
             - "8880:80"
         volumes:
-            - "/home/richard/docker/projects/pentrainer:/flaskapp"
-            - "/home/richard/docker/projects/pentrainer/conf.d:/etc/nginx/conf.d"
+            - .:/flaskapp
+            - ./conf.d:/etc/nginx/conf.d
